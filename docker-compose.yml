@@ -4,8 +4,9 @@ services:
 
         app:
            build: docker
+           container_name: my-app
            volumes:
-              - ./app:/var/www/app
+              - ./app:/app
               - ./docker/logs:/var/log/apache2
            ports:
               - "80:80"
@@ -13,9 +14,10 @@ services:
         composer:
            image: composer
            volumes:
-              - ./app:/var/www/app
+              - ./app:/app
 
         database:
+           container_name: my-database
            image: postgres
            ports:
              - "5432:5432"
@@ -25,6 +27,7 @@ services:
               - "POSTGRES_PASSWORD: postgres"
 
         adminer:
+           container_name: my-adminer
            image: adminer
            ports:
               - 8080:8080

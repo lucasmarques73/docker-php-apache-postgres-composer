@@ -1,4 +1,3 @@
-
 FROM php:7.2-apache
 
 LABEL Lucas Marques <lucasmarques73@hotmail.com>
